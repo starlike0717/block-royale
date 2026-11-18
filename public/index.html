@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#1b1442">
+<title>블록 로얄 — 팡팡 블록 배틀</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ───── 홈 ───── -->
+  <section id="home" class="screen active">
+    <div class="topbar">
+      <div class="lvl"><span id="lvlBadge">Lv.1</span><div class="xpbar"><div id="xpFill"></div></div></div>
+      <div class="coins">🪙 <span id="coinTxt">0</span></div>
+      <button id="muteBtn" class="icon-btn" aria-label="소리">🔊</button>
+    </div>
+    <h1 class="logo"><span>블록</span><span>로얄</span></h1>
+    <p class="tagline">놓고 · 지우고 · 콤보로 친구를 공격하라!</p>
+    <div class="name-row">
+      <input id="nameInput" maxlength="12" placeholder="닉네임" autocomplete="off">
+    </div>
+    <div class="menu">
+      <button id="soloBtn" class="big-btn green">🧩 혼자 하기<small>최고 점수 <b id="bestTxt">0</b></small></button>
+      <button id="quickBtn" class="big-btn pink">⚔️ 온라인 배틀<small>최대 6명 블록 배틀로얄</small></button>
+      <div class="row2">
+        <button id="createBtn" class="mid-btn">🏠 방 만들기</button>
+        <button id="joinBtn" class="mid-btn">🔑 코드로 입장</button>
+      </div>
+      <div class="row2">
+        <button id="shopBtn" class="mid-btn">🎨 꾸미기</button>
+        <button id="helpBtn" class="mid-btn">❓ 방법</button>
+      </div>
+    </div>
+    <div class="missions card">
+      <div class="missions-head">📅 오늘의 미션 <span id="streakTxt"></span></div>
+      <ul id="missionList"></ul>
+    </div>
+  </section>
+
+  <!-- ───── 게임 ───── -->
+  <section id="game" class="screen">
+    <div class="game-top">
+      <button id="quitBtn" class="icon-btn" aria-label="나가기">✖</button>
+      <div class="scorebox">
+        <div id="scoreTxt">0</div>
+        <div class="sub">최고 <span id="gBestTxt">0</span></div>
+      </div>
+      <div id="comboTxt" class="combo"></div>
+    </div>
+    <div id="opponents" class="opponents"></div>
+    <div id="garbageBar" class="garbage-bar"><div id="garbageFill"></div><span id="garbageTxt"></span></div>
+    <div class="board-wrap">
+      <div id="board" class="board"></div>
+      <div id="fxLayer" class="fx-layer"></div>
+    </div>
+    <div class="items" id="items">
+      <button class="item" data-item="hammer">🔨<span>0</span></button>
+      <button class="item" data-item="bomb">💣<span>0</span></button>
+      <button class="item" data-item="reroll">🔄<span>0</span></button>
+    </div>
+    <div id="tray" class="tray"><div class="slot"></div><div class="slot"></div><div class="slot"></div></div>
+    <div id="emotes" class="emotes hidden">
+      <button>👍</button><button>😂</button><button>😱</button><button>🔥</button><button>😎</button><button>💖</button>
+    </div>
+    <div id="toast" class="toast"></div>
+  </section>
+
+  <!-- ───── 로비 ───── -->
+  <section id="lobby" class="screen">
+    <h2 id="lobbyTitle">대기실</h2>
+    <div id="roomCodeBox" class="room-code">방 코드 <b id="roomCode">----</b><button id="copyCodeBtn" class="mini-btn">복사</button></div>
+    <p id="lobbyInfo" class="lobby-info"></p>
+    <ul id="lobbyPlayers" class="lobby-players"></ul>
+    <div class="lobby-actions">
+      <button id="addBotBtn" class="mid-btn">🤖 봇 추가</button>
+      <button id="startBtn" class="big-btn pink">▶ 시작!</button>
+      <button id="leaveBtn" class="mid-btn">← 나가기</button>
+    </div>
+    <div class="tip card" id="lobbyTip"></div>
+  </section>
+
+  <!-- ───── 모달들 ───── -->
+  <div id="overlay" class="overlay hidden">
+    <div id="modal" class="modal"></div>
+  </div>
+  <div id="countdown" class="countdown hidden"></div>
+  <div id="dragLayer" class="drag-layer"></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
