@@ -1,0 +1,14 @@
+{
+  "name": "block-royale",
+  "version": "1.0.0",
+  "description": "블록 로얄 — 블록 퍼즐 + 실시간 배틀로얄 웹 게임 (외부 패키지 없음)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/server.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
